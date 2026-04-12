@@ -9,6 +9,7 @@ function saveTask(tasks){
   localStorage.setItem("tasks", JSON.stringify(tasks))
 }
 
+//* get task from localStorage
 function getTask(){
     return JSON.parse(localStorage.getItem("tasks"))
 }
