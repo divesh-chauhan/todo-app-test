@@ -31,3 +31,7 @@ function render(){
         ul.appendChild(li)
     })
 }
+
+
+
+document.addEventListener("DOMContentLoaded", render)
