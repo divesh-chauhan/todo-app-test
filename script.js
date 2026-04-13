@@ -55,11 +55,26 @@ button.addEventListener("click", () => {
 })
 
 
+//* delete task
+function deleteTask(id){
+    let tasks = getTask()
+    tasks = tasks.filter(task => task.id !== id)
+    saveTask(tasks)
+    render()
+}
+
+
 //* event deligation for edit and delete task
 ul.addEventListener("click", (event) => {
     const editButton = event.target.closest("#edit-task")
     const deleteButton = event.target.closest("#delete-task")
 
+    if(editButton){
+
+    } else if(deleteButton){
+        const id = Number(deleteButton.dataset.id)
+        deleteTask(id)
+    }
 })
 
 document.addEventListener("DOMContentLoaded", render)
