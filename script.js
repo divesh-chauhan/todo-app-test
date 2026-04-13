@@ -5,7 +5,6 @@ const ul = document.getElementById("container")
 let editTask = null;
 
 //* save to localStorage
-
 function saveTask(tasks){
   localStorage.setItem("tasks", JSON.stringify(tasks))
 }
@@ -15,8 +14,7 @@ function getTask(){
     return JSON.parse(localStorage.getItem("tasks")) || []
 }
 
-
-//* render 
+//* render page
 function render(){
     const tasks = getTask()
     ul.innerHTML = ""
@@ -32,7 +30,6 @@ function render(){
         ul.appendChild(li)
     })
 }
-
 
 //* add + edit task
 button.addEventListener("click", () => {
@@ -78,7 +75,6 @@ button.addEventListener("click", () => {
     render()
 })
 
-
 //* delete task
 function deleteTask(id){
     let tasks = getTask()
@@ -86,7 +82,6 @@ function deleteTask(id){
     saveTask(tasks)
     render()
 }
-
 
 //* event deligation for edit and delete task
 ul.addEventListener("click", (event) => {
@@ -105,4 +100,5 @@ ul.addEventListener("click", (event) => {
     }
 })
 
+//* auto page load
 document.addEventListener("DOMContentLoaded", render)
