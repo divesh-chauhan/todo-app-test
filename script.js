@@ -2,6 +2,7 @@ const input = document.getElementById("taskText")
 const button = document.getElementById("addTask")
 const ul = document.getElementById("container")
 
+let editTask = null;
 
 //* save to localStorage
 
@@ -33,24 +34,47 @@ function render(){
 }
 
 
-//* add task
+//* add + edit task
 button.addEventListener("click", () => {
     const tasks = getTask()
     const taskText = input.value.trim()
 
-    if(!taskText){
-        return alert("Please enter your task ⚠")
+    if(editTask){
+        if(!taskText){
+            return alert("Please enter your task ⚠")
+        }
+
+        const updatedTask = tasks.map(task => {
+            if(task.id === editTask){
+                return {
+                    ...task,
+                    title : taskText
+                }
+            }
+            return task
+        })
+
+        saveTask(updatedTask)
+        editTask = null
+       
+    } else {
+
+        if(!taskText){
+            return alert("Please enter your task ⚠")
+        }
+    
+        const newTask = {
+            id : Date.now(),
+            title : taskText
+        }
+    
+        tasks.push(newTask)
+        saveTask(tasks)
     }
 
-    const newTask = {
-        id : Date.now(),
-        title : taskText
-    }
-
-    tasks.push(newTask)
-    saveTask(tasks)
 
     input.value = ""
+    button.textContent = "Add Task"
     render()
 })
 
@@ -70,7 +94,11 @@ ul.addEventListener("click", (event) => {
     const deleteButton = event.target.closest("#delete-task")
 
     if(editButton){
-
+        let li = editButton.parentElement
+        let taskTitle = li.querySelector("span").textContent
+        input.value = taskTitle
+        editTask = Number(editButton.dataset.id)
+        button.textContent = "Update Task"
     } else if(deleteButton){
         const id = Number(deleteButton.dataset.id)
         deleteTask(id)
