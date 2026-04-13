@@ -11,7 +11,7 @@ function saveTask(tasks){
 
 //* get task from localStorage
 function getTask(){
-    return JSON.parse(localStorage.getItem("tasks"))
+    return JSON.parse(localStorage.getItem("tasks")) || []
 }
 
 
