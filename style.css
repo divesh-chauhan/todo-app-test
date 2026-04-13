@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins", sans-serif;
+}
+
+body{
+    background-color: rgb(6, 1, 16);
+}
+
+button{
+    border: none;
+    outline: none;
+    padding: 8px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#wrapper{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    border-radius: 20px;
+    background-color: rgb(6, 1, 16);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid  rgb(8, 1, 22);
+    border: 1px solid rgb(24, 1, 70);
+}
+
+h1{
+    color: rgb(66, 60, 114);
+    padding-bottom: 2.5rem;
+}
+
+#taskText{
+    width: 80%;
+    padding: 1rem;
+    border: none;
+    text-align: center;
+    border-bottom: 1px solid rgb(22, 3, 60);
+    outline: none;
+    color: rgb(183, 173, 173);
+    font-size: 1.5rem;
+    border-radius: 5px;
+    background: transparent;
+}
+
+/* #taskText:hover{
+    border: 1px solid rgb(85, 3, 250);
+} */
+
+#addTask{
+    border: 1px solid  rgb(85, 5, 246);
+    margin-top: 2rem;
+    margin-bottom: 5rem;
+    color: white;
+    background-color: rgb(84, 2, 249);
+}
+
+#addTask:hover{
+   background: transparent;
+}
+
+li{
+    list-style-type: none;
+    gap: 2rem;
+    /* background-color: red; */
+    line-height: 5rem;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+#edit-task {
+    color: rgb(175, 171, 171);
+    background-color:  rgb(33, 3, 98);
+    margin-left: 8rem;
+    margin-right: 1rem;
+}
+
+#edit-task:hover{
+    background-color: rgb(47, 3, 142);
+}
+
+#delete-task{
+    color: rgb(152, 148, 148);
+    background-color: rgb(31, 23, 50);
+}
+
+#delete-task:hover{
+    color: rgb(152, 148, 148);
+    background-color: rgb(183, 3, 3);
+}
