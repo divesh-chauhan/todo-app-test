@@ -33,5 +33,25 @@ function render(){
 }
 
 
+//* add task
+button.addEventListener("click", () => {
+    const tasks = getTask()
+    const taskText = input.value.trim()
+
+    if(!taskText){
+        return alert("Please enter your task ⚠")
+    }
+
+    const newTask = {
+        id : Date.now(),
+        title : taskText
+    }
+
+    tasks.push(newTask)
+    saveTask(tasks)
+    
+    input.value = ""
+    render()
+})
 
 document.addEventListener("DOMContentLoaded", render)
