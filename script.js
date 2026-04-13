@@ -49,9 +49,17 @@ button.addEventListener("click", () => {
 
     tasks.push(newTask)
     saveTask(tasks)
-    
+
     input.value = ""
     render()
+})
+
+
+//* event deligation for edit and delete task
+ul.addEventListener("click", (event) => {
+    const editButton = event.target.closest("#edit-task")
+    const deleteButton = event.target.closest("#delete-task")
+
 })
 
 document.addEventListener("DOMContentLoaded", render)
